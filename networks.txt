@@ -1,4 +1,4 @@
-126.52.0 255.255.254.0
+19.126.52.0 255.255.254.0
 36.221.0.0 255.255.192.0
 88.0.0.0 255.0.0.0
 110.142.0.0 255.254.0.0
@@ -8,3 +8,17 @@
 189.126.212.0 255.255.255.0
 198.202.146.0 255.255.255.128
 205.47.7.0 255.255.255.192
+
+N4(config)#service dhcp
+N4(config)#ip dhcp pool guest
+N4(dhcp-config)#network 192.168.12.0 255.255.255.0
+N4(dhcp-config)#default-router 192.168.12.1
+N4(dhcp-config)#exit
+
+N2(config)#interface Eth0/0/0
+N2(config-if)#ip nat inside
+N2(config-if)#exit
+N2(config)#interface Eth0/1/0
+N2(config-if)#ip nat outside
+N2(config-if)#exit
+N2(config)#ip nat inside source static 192.168.11.2 19.126.52.1
