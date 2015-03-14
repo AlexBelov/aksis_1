@@ -15,10 +15,10 @@ N4(dhcp-config)#network 192.168.12.0 255.255.255.0
 N4(dhcp-config)#default-router 192.168.12.1
 N4(dhcp-config)#exit
 
-N2(config)#interface Eth0/0/0
-N2(config-if)#ip nat inside
-N2(config-if)#exit
-N2(config)#interface Eth0/1/0
-N2(config-if)#ip nat outside
-N2(config-if)#exit
-N2(config)#ip nat inside source static 192.168.11.2 19.126.52.1
+N6(config)#interface Eth0/0/0
+N6(config-if)#ip nat inside
+N6(config-if)#exit
+N6(config)#interface Eth0/1/0
+N6(config-if)#ip nat outside
+N6(config-if)#exit
+N6(config)#ip nat inside source static 192.168.11.2 19.126.52.1
